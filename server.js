@@ -2,18 +2,19 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://damian:<password>@cluster0-1yssz.mongodb.net/test?retryWrites=true', {
-  useNewUrlParser: true
+mongoose.connect('mongodb+srv://damian:damian@cluster0-1yssz.mongodb.net/test?retryWrites=true', {
+  useNewUrlParser: true,
+  useFindAndModify: false
 });
 
 //new user Schema
 const userSchema = new Schema({
-    name: String,
-    username: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
-    admin: Boolean,
-    created_at: Date,
-    updated_at: Date
+  name: String,
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  admin: Boolean,
+  created_at: Date,
+  updated_at: Date
 });
 
 //Mongoose schema method
